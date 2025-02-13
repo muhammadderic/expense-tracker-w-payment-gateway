@@ -10,6 +10,16 @@ const ExpenseEditForm = ({ expense }: { expense: ExpenseProps }) => {
   const [amount, setAmount] = useState(expense.amount);
   const router = useRouter();
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const handleAmountChange = (e: { target: { value: any; }; }) => {
+    const value = e.target.value;
+
+    // Allow only numbers and empty string
+    if (value === '' || /^[0-9]+$/.test(value)) {
+      setAmount(value);
+    }
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
@@ -33,7 +43,7 @@ const ExpenseEditForm = ({ expense }: { expense: ExpenseProps }) => {
       <input
         type="number"
         value={amount}
-        onChange={(e) => setAmount(Number(e.target.value))}
+        onChange={handleAmountChange}
         className="w-full px-3 py-2 outline-none"
       />
 
