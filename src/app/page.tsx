@@ -29,6 +29,7 @@ export default function Home() {
         </p>
 
         <div className="mt-10 space-x-3">
+          {/* TODO: Add conditional to render if user authenticated and has membership */}
           <>
             <Link href="/" className="bg-black text-white py-2 px-4 rounded-lg font-medium">
               Login
