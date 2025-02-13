@@ -13,3 +13,23 @@ export const addExpense = async (formData: FormData) => {
 
   revalidatePath("/dashboard");
 }
+
+export async function getExpenseById(id: number) {
+  return await prisma.expense.findUnique({
+    where: { id },
+  });
+}
+
+export async function editExpense(formData: FormData, id: number) {
+  await prisma.expense.update({
+    where: {
+      id: id,
+    },
+    data: {
+      description: formData.get("description") as string,
+      amount: Number(formData.get("amount")),
+    },
+  });
+
+  revalidatePath("/dashboard");
+}
