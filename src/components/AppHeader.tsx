@@ -48,7 +48,7 @@ const AppHeader = () => {
       </nav>
 
       {/* TODO: Upgrade the logout button using auth library logout button */}
-      <Link href="/" className="px-2 py-1 ml-8 bg-red-400 hover:text-white text-xs transition text-white/100 rounded-sm">
+      <Link href="/" className="px-2 py-1 ml-8 bg-red-400 hover:bg-red-500 text-xs transition text-white/100 rounded-sm">
         Logout
       </Link>
     </header>
