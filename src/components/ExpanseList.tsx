@@ -1,5 +1,6 @@
 "use client"
 
+import { deleteExpense } from "@/actions/actions";
 import { ExpenseListProps } from "@/types/types"
 import { useRouter } from "next/navigation"
 
@@ -23,7 +24,11 @@ const ExpensesList = ({ expenses }: ExpenseListProps) => {
                 Edit
               </button>
 
-              <button className="text-[10px] h-[20px] w-[20px] bg-red-400 text-white rounded hover:bg-red-500">
+              <button
+                onClick={async () => {
+                  await deleteExpense(expense.id);
+                }}
+                className="text-[10px] h-[20px] w-[20px] bg-red-400 text-white rounded hover:bg-red-500">
                 X
               </button>
             </li>

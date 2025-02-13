@@ -33,3 +33,13 @@ export async function editExpense(formData: FormData, id: number) {
 
   revalidatePath("/dashboard");
 }
+
+export async function deleteExpense(id: number) {
+  await prisma.expense.delete({
+    where: {
+      id: id,
+    },
+  });
+
+  revalidatePath("/app/dashboard");
+}
