@@ -1,7 +1,7 @@
+import { LoginLink, RegisterLink } from "@kinde-oss/kinde-auth-nextjs/server";
 import Image from "next/image";
-import Link from "next/link";
 
-export default function Home() {
+export default async function Home() {
   return (
     <div className="bg-primary min-h-screen flex flex-col lg:flex-row items-center justify-center text-tarsier">
       <div className="relative w-full lg:w-1/2 h-[300px] lg:h-screen flex justify-center items-center">
@@ -31,13 +31,13 @@ export default function Home() {
         <div className="mt-10 space-x-3">
           {/* TODO: Add conditional to render if user authenticated and has membership */}
           <>
-            <Link href="/" className="bg-black text-white py-2 px-4 rounded-lg font-medium">
+            <LoginLink postLoginRedirectURL="/dashboard" className="bg-black text-white py-2 px-4 rounded-lg font-medium">
               Login
-            </Link>
+            </LoginLink>
 
-            <Link href="/" className="bg-black/50 text-white py-2 px-4 rounded-lg font-medium">
+            <RegisterLink postLoginRedirectURL="/" className="bg-black/50 text-white py-2 px-4 rounded-lg font-medium">
               Register
-            </Link>
+            </RegisterLink>
           </>
         </div>
       </div>

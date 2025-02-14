@@ -1,5 +1,6 @@
 "use client"
 
+import { LogoutLink } from "@kinde-oss/kinde-auth-nextjs";
 import Image from "next/image"
 import Link from "next/link"
 import { usePathname } from "next/navigation";
@@ -48,9 +49,9 @@ const AppHeader = () => {
       </nav>
 
       {/* TODO: Upgrade the logout button using auth library logout button */}
-      <Link href="/" className="px-2 py-1 ml-8 bg-red-400 hover:bg-red-500 text-xs transition text-white/100 rounded-sm">
+      <LogoutLink href="/" className="px-2 py-1 ml-8 bg-red-400 hover:bg-red-500 text-xs transition text-white/100 rounded-sm">
         Logout
-      </Link>
+      </LogoutLink>
     </header>
   )
 }
